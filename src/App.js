@@ -1,12 +1,15 @@
 import React from "react";
+
+// Context Provider
 import ProductsContextProvider from "./contexts/ProductsContextProvider";
+
+// Components
+import Store from "./components/Store";
 
 function App() {
   return (
     <ProductsContextProvider>
-        <div className="App">
-            
-        </div>
+      <Store />
     </ProductsContextProvider>
   );
 }

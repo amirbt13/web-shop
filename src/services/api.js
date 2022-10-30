@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 export const getProducts = async () => {
-    const response = await axios.get("https://api.storerestapi.com/products")
+    const response = await axios.get("https://fakestoreapi.com/products")
+    
     return response.data
 } 
