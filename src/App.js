@@ -14,7 +14,7 @@ function App() {
     <ProductsContextProvider>
       <Header />
       <Routes>
-       <Route path="/home" element={<Landing />} />
+       <Route path="/" element={<Landing />} />
        <Route path="/store" element={<Store />} />
       </Routes>
     </ProductsContextProvider>

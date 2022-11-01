@@ -5,8 +5,6 @@ import Product from './Product'
 // Context
 import { ProductsContext }from '../contexts/ProductsContextProvider'
 
-// CSS
-import styles from "./Products.module.css"
 
 const Products = () => {
 
@@ -14,7 +12,7 @@ const Products = () => {
     console.log(products)
 
   return (
-    <div className={styles.container}>
+    <div className=''>
         {
         products.map(product => <Product key={product.id} product={product}/>)
     }

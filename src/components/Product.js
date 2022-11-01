@@ -1,15 +1,13 @@
 import React from 'react'
 
-// CSS
-import styles from "./Product.module.css"
 
 const Product = ({ product }) => {
   return (
-    <div className={styles.container}>
+    <div className=''>
 
         <h4>{product.title.length > 30 ? `${product.title.substr(0, 30)}...` : product.title}</h4>
 
-        <div className={styles.productImage}>
+        <div className=''>
             <img src={product.image} alt="product pic"/>
         </div>
 
