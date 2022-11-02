@@ -9,13 +9,14 @@ import Store from "./components/Store";
 import Header from "./components/Header";
 import Landing from "./components/Landing";
 
+
 function App() {
   return (
     <ProductsContextProvider>
       <Header />
       <Routes>
        <Route path="/" element={<Landing />} />
-       <Route path="/store" element={<Store />} />
+       <Route path="/store/*" element={<Store />} />
       </Routes>
     </ProductsContextProvider>
   );

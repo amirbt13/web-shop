@@ -1,18 +1,33 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
 const Product = ({ product }) => {
   return (
-    <div className=''>
+    <div className='container flex flex-col  items-center w-[10rem] xs:w-[13rem] mx-auto border-[1px] border-solid border-silver rounded-md shadow-lg justify-between' onMouseDown={(e) => e.target.classList.add("shadow-inner")} 
+    onMouseUp={(e) => e.target.classList.remove("shadow-inner")}
+    >
+      <Link to={`/store/products/${product.id}`} >
 
-        <h4>{product.title.length > 30 ? `${product.title.substr(0, 30)}...` : product.title}</h4>
+        <h4 className='text-center my-4 px-2'>{product.title.length > 30 ? `${product.title.substr(0, 37)}...` : product.title}
+        </h4>
 
-        <div className=''>
-            <img src={product.image} alt="product pic"/>
+        <div className='w-[8rem] min-h-[8rem] mb-2 mx-auto'>
+            <img className=' h-[9rem] rounded-md mx-auto' src={product.image} alt="product pic"/>
         </div>
 
-        <span>{product.category}</span>
+      </Link>
 
+        <div className='flex flex-col items-center'>
+
+            <span className='mb-2 font-light text-sm bg-lime-200 rounded-sm px-1'>${product.price}
+            </span>
+
+            <button className='w-24 border-[1px] mb-2 rounded-md'>
+              +
+            </button>
+
+        </div>
         
     </div>
 
