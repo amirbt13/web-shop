@@ -8,6 +8,7 @@ let initialState = {
 }
 
 const cartReducer = (state, action) => {
+    console.log(state)
     switch (action.type) {
 
         case "ADD_ITEM":
@@ -49,20 +50,20 @@ const cartReducer = (state, action) => {
          case "CLEAR":
             return {...initialState}
             
-            default: state;
+            default: return state
     }
 }
 
-export const cartContext = createContext()
+export const CartContext = createContext()
 
-const CartContextProvider = () => {
+const CartContextProvider = (props) => {
 
     const [state, dispatch] = useReducer(cartReducer, initialState)
 
   return (
-    <cartContext.Provider value={{state, dispatch}}>
+    <CartContext.Provider value={{state, dispatch}}>
        {props.children}
-    </cartContext.Provider>
+    </CartContext.Provider>
   )
 }
 
