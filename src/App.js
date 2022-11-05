@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 // Context Provider
 import ProductsContextProvider from "./contexts/ProductsContextProvider";
+import CartContextProvider from "./contexts/CartContextProvider";
 
 // Components
 import Store from "./components/Store";
@@ -13,11 +14,13 @@ import Landing from "./components/Landing";
 function App() {
   return (
     <ProductsContextProvider>
-      <Header />
-      <Routes>
-       <Route path="/" element={<Landing />} />
-       <Route path="/store/*" element={<Store />} />
-      </Routes>
+      <CartContextProvider>
+          <Header />
+          <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/store/*" element={<Store />} />
+          </Routes>
+      </CartContextProvider>
     </ProductsContextProvider>
   );
 }

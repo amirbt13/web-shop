@@ -12,12 +12,13 @@ axios.interceptors.request.use((req) => {
   console.log(`an error occurd sending request to ${req.url}`)
 })
 
-// axios.interceptors.response.use((res) => {
+//  axios.interceptors.response.use((res) => {
   
-//   console.log(`response got back from ${res.config.url} status: ${res.status}`)
-// }, (res) => {
-//   console.log(`there is no response from ${res.config.url} , ${res.status}`)
-// })
+//    console.log(`response got back from ${res.config.url} status: ${res.request.status}`)
+//  }, (res) => {
+//   console.log(res)
+//   console.log(`there is no response from ${res.config.url} , ${res.request.status}`)
+//  })
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
