@@ -1,11 +1,10 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
-// helper
-import { isInCart ,quantityCount } from '../helperF/functions'
 
 // Context
 import { CartContext } from '../contexts/CartContextProvider'
+import CartButtons from '../smallComponents/CartButtons'
 
 
 const Product = ({ product }) => {
@@ -33,26 +32,9 @@ const Product = ({ product }) => {
 
           <span className='mb-2 font-light text-sm bg-lime-200 rounded-sm px-1'>${product.price}
           </span>
-          <div>
-            {
-                !isInCart(state, product.id)
-                ? 
-                <button onClick={() => dispatch({type: "ADD_ITEM", payload: product})}>ADD TO CART</button> :
-                <button onClick={() => dispatch({type: "INCREASE", payload: product})}>+</button>
 
-            }
-            {
-              quantityCount(state, product.id) === 1 
-              &&
-              <button onClick={() => dispatch({type: "REMOVE_ITEM", payload: product})}>REMOVE</button>
-            }
-            { 
-             quantityCount(state, product.id) > 1
-             &&
-             <button onClick={() => dispatch({type: "DECREASE", payload: product})}>-</button>  
-            }
-
-          </div>
+          <CartButtons product={product}/> 
+          
         </div>
         
     </div>

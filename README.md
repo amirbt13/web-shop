@@ -1,3 +1,7 @@
+# IMPORTANT IMPORTANT
+project can not go any further because of internet issues in iran , the fakestoreapi server is down , 
+the project will start again as soon as possible .
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

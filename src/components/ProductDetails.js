@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 
+import CartButtons from '../smallComponents/CartButtons'
+
 // Context
 import { ProductsContext } from '../contexts/ProductsContextProvider'
 
@@ -22,6 +24,7 @@ const ProductDetails = (props) => {
       </div>
       <div className='basis-2/3 xs:basis-1/2 flex justify-end'>
         <img className='w-[200px] sm:w-[300px] lg:w-[400px]' src={product.image} alt='product'/>
+        <CartButtons product={product}/>
       </div>
     </div>
   )

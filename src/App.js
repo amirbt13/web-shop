@@ -9,6 +9,7 @@ import CartContextProvider from "./contexts/CartContextProvider";
 import Store from "./components/Store";
 import Header from "./components/Header";
 import Landing from "./components/Landing";
+import Cart from "./components/Cart";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Header />
           <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/store/*" element={<Store />} />
           </Routes>
       </CartContextProvider>

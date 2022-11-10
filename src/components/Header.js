@@ -15,7 +15,7 @@ const Header = () => {
       </div>
       <div className='hidden md:block text-xl'>
         <ul className='flex flex-row space-x-6'>
-          <li className='hover:tracking-widest transition-all font-light'><Link to=''>CART</Link></li>
+          <li className='hover:tracking-widest transition-all font-light'><Link to='/cart'>CART</Link></li>
           <li className='hover:tracking-widest transition-all font-light'><Link to='/store'>SHOP</Link></li>
           <li className='hover:tracking-widest transition-all font-light'><Link to=''>CONTACT</Link></li>
           <li className='hover:tracking-widest transition-all font-light'><Link to='/'>HOME</Link></li>
