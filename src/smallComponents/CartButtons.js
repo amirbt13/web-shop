@@ -11,18 +11,21 @@ const CartButtons = ({ product }) => {
 
 
   return (
-    <div>
+    <div className='mb-2'>
             {
                 !isInCart(state, product.id)
                 ? 
-                <button onClick={() => dispatch({type: "ADD_ITEM", payload: product})}>ADD TO CART</button> :
-                <button onClick={() => dispatch({type: "INCREASE", payload: product})}>+</button>
+                <button
+                 onClick={() => dispatch({type: "ADD_ITEM", payload: product})}>ADD TO CART</button> 
+                 :
+                <button className=' bg-blue-700 text-white px-[9px] rounded-sm py-[1px]'
+                onClick={() => dispatch({type: "INCREASE", payload: product})}>+</button>
 
             }
             {
               quantityCount(state,product.id) >= 1 
               &&
-              <span>{quantityCount(state,product.id)}</span>
+              <span className='py-1 px-[6px]  rounded-sm mx-[2px]'>{quantityCount(state,product.id)}</span>
             }
             {
               quantityCount(state, product.id) === 1 
@@ -32,7 +35,8 @@ const CartButtons = ({ product }) => {
             { 
              quantityCount(state, product.id) > 1
              &&
-             <button onClick={() => dispatch({type: "DECREASE", payload: product})}>-</button>  
+             <button className=' bg-red-500 text-white px-[10px] rounded-sm py-[1px]'
+              onClick={() => dispatch({type: "DECREASE", payload: product})}>-</button>  
             }
 
           </div>
