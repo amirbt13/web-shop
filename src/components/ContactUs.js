@@ -5,7 +5,7 @@ import me from '../me.JPEG'
 const ContactUs = () => {
   return (
     <div className='flex items-center justify-center h-[90vh]'>
-        <div className='w-1/2 flex flex-row-reverse justify-between rounded-lg overflow-hidden shadow-2xl' >
+        <div className=' bg-slate-50 w-1/2 flex flex-row-reverse justify-between rounded-lg overflow-hidden shadow-2xl' >
             <div>
                 <img className=' w-64' src={me} alt="me" />
             </div>

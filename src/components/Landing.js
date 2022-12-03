@@ -1,6 +1,8 @@
 import React from 'react'
 import Typewriter from 'typewriter-effect'
 
+import "../fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf"
+import "../fonts/Dancing_Script/static/DancingScript-Bold.ttf"
 
 
 const Landing = () => {
@@ -9,7 +11,7 @@ const Landing = () => {
   return (
     <div className="w-screen h-[94vh] mx-auto bg-gradient-to-r from-cyan-500 to-blue-500">
         <div>
-            <h2 className='relative top-96 ml-10 text-6xl md:text-[5rem]'>
+            <h2 className='relative top-96 ml-10 text-4xl md:text-[5rem] font-[dancing-bold]'>
               <Typewriter 
                   options={{
                     loop: true,

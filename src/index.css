@@ -19,6 +19,19 @@ code {
     monospace;
 }
 
+@font-face {
+  font-family: "dancing";
+  src: url("./fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "dancing-bold";
+  src: url("./fonts/Dancing_Script/static/DancingScript-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "dancing-med";
+  src: url("./fonts/Dancing_Script/static/DancingScript-Medium.ttf") format("truetype");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
