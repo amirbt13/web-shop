@@ -1,25 +1,30 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 import { CartContext } from '../contexts/CartContextProvider'
 
 
 import logo from '../icons/png-logo-web.png'
+import burgerMenu from '../icons/ham-menu.svg'
+import cross from '../icons/cross.svg'
 
 const Header = () => {
   const location = useLocation()
 
   const {state} = useContext(CartContext)
 
+  const [isBurgerShow, setIsBurgerShow] = useState(false)
+
   return (
     <div 
-    className={`${location.pathname === "/" && "bg-gradient-to-r from-cyan-500 to-blue-500" } w-screen flex justify-between items-center px-6 sticky top-0 ${location.pathname === "/cart" ? "bg-slate-100 backdrop-blur" : "bg-[#f8fafc7c] backdrop-blur"} `}>
+    className={`${location.pathname === "/" && "bg-gradient-to-r from-cyan-500 to-blue-500" } w-screen flex justify-between  ${!isBurgerShow && "px-4 items-center"} sticky top-0 ${location.pathname === "/cart" ? "bg-slate-100 backdrop-blur" : "bg-[#f8fafc7c] backdrop-blur"} `}>
       <div>
         <img className='w-12 rounded-full ' src={logo} alt="logo"/>
       </div>
       <div className='hidden xs:block text-xl'>
         <ul className='flex flex-row space-x-6'>
-          <li className='hover:tracking-widest transition-all font-light'><Link to='/cart'>
+          <li className='hover:tracking-widest transition-all font-light'>
+            <Link to='/cart'>
 
             <span 
             className={`px-[4px] relative bottom-3 ${location.pathname === "/" ? "bg-white text-black border-black border-[1px]" : "bg-blue-700 text-white"} rounded-full text-sm`}
@@ -34,6 +39,28 @@ const Header = () => {
           <li className='hover:tracking-widest transition-all font-light'><Link to='/'>HOME</Link></li>
 
         </ul>
+      </div>
+      <div className='xs:hidden' onClick={() => setIsBurgerShow(true)}>
+        <img className='w-8' src={burgerMenu} alt='menu'/>
+      </div>
+
+      <div className={` transition ease-in-out ${isBurgerShow ? "translate-y-0" : "translate-y-[-100px]"} bg-white absolute w-[100vw] flex justify-between border-b-2 `}>
+
+        <div>
+          <img onClick={() => setIsBurgerShow(false)}
+          className='relative top-2 left-2 w-4' src={cross} alt="cross"
+          />
+        </div>
+
+        <div>
+          <ul onClick={() => setIsBurgerShow(false)}
+          className='text-right mr-1'>
+            <li><Link to='/'>HOME</Link></li>
+            <li><Link to='/store'>SHOP</Link></li>
+            <li><Link to='/contact'>CONTACT</Link></li>
+            <li><Link to='/cart'>CART</Link></li>
+          </ul>
+        </div>
       </div>
     
     </div>
