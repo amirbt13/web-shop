@@ -22,14 +22,14 @@ const Cart = () => {
               state.isChekedOut 
               &&
               <div className='bg-white w-5/6 mx-auto my-2 p-3 h-64 rounded-md shadow-md flex flex-col justify-evenly'>
-                <h4 className='text-lg '>Thank You For Your Purchse</h4>
+                <h4 className='text-lg text-center'>Thank You For Your Purchse</h4>
                 <button className='px-2 bg-blue-700 text-white font-medium rounded-lg'><Link to='../store'>BUY MORE</Link></button>
               </div>
             }
             {
               !state.isChekedOut
               &&
-              <div className='flex flex-col justify-around bg-white w-5/6 mx-auto my-2 p-3 h-64 rounded-md shadow-md'>
+              <div className='flex flex-col justify-evenly bg-white w-5/6 mx-auto my-2 p-3 h-64 rounded-md shadow-md'>
                 <div>
                   <div>
                     <h4 className=' text-lg font-bold text-blue-700 ml-2 inline-block'>Total Count: </h4>
@@ -41,8 +41,8 @@ const Cart = () => {
                   </div>
                 </div>  
                   <div className='flex justify-between'>
-                    <button className='ml-2' onClick={() => dispatch({type: "CLEAR"})}>CLEAR CART</button>
-                    <button className='bg-blue-700 text-white px-2 rounded-sm shadow-sm' onClick={() => dispatch({type: "CHECKOUT"})}>CHECK OUT</button>
+                    <button className='ml-2 bg-slate-100 py-[1px] px-1 rounded-md' onClick={() => dispatch({type: "CLEAR"})}>CLEAR CART</button>
+                    <button className='bg-blue-700 text-white px-2 rounded-md shadow-sm' onClick={() => dispatch({type: "CHECKOUT"})}>CHECK OUT</button>
                   </div>
               </div>
             }

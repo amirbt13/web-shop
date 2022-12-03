@@ -15,7 +15,7 @@ const CartButtons = ({ product }) => {
             {
                 !isInCart(state, product.id)
                 ? 
-                <button
+                <button className='bg-slate-100 py-[1px] px-1 rounded-md'
                  onClick={() => dispatch({type: "ADD_ITEM", payload: product})}>ADD TO CART</button> 
                  :
                 <button className=' bg-blue-700 text-white px-[9px] rounded-sm py-[1px]'
@@ -30,7 +30,7 @@ const CartButtons = ({ product }) => {
             {
               quantityCount(state, product.id) === 1 
               &&
-              <button onClick={() => dispatch({type: "REMOVE_ITEM", payload: product})}>REMOVE</button>
+              <button className='bg-slate-100 py-[1px] px-1 rounded-md' onClick={() => dispatch({type: "REMOVE_ITEM", payload: product})}>REMOVE</button>
             }
             { 
              quantityCount(state, product.id) > 1

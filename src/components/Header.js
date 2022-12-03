@@ -22,8 +22,8 @@ const Header = () => {
           <li className='hover:tracking-widest transition-all font-light'><Link to='/cart'>
             <span className='px-[4px] relative bottom-3 bg-blue-700 text-white rounded-full text-sm'>{state.itemsCount}</span>
             CART</Link></li>
+          <li className='hover:tracking-widest transition-all font-light'><Link to='/contact'>CONTACT</Link></li>
           <li className='hover:tracking-widest transition-all font-light'><Link to='/store'>SHOP</Link></li>
-          <li className='hover:tracking-widest transition-all font-light'><Link to=''>CONTACT</Link></li>
           <li className='hover:tracking-widest transition-all font-light'><Link to='/'>HOME</Link></li>
         </ul>
       </div>
