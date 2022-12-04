@@ -21,7 +21,7 @@ const Header = () => {
       <div>
         <img className='w-12 rounded-full ' src={logo} alt="logo"/>
       </div>
-      <div className='hidden sm:block text-xl'>
+      <div className='hidden sm:block text-2xl'>
         <ul className='flex flex-row space-x-6'>
           <li className='hover:tracking-widest transition-all font-light'>
             <Link to='/cart'>
