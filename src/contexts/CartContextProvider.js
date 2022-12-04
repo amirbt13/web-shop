@@ -14,17 +14,16 @@ const sumItem = (items) => {
 }
 
 const cartReducer = (state, action) => {
-    console.log(state)
+    
     switch (action.type) {
 
         case "ADD_ITEM":
             if(!state.selectedItems.find(item => item.id === action.payload.id)){
-                return state.selectedItems.push(
-                    {
+                state.selectedItems.push({
                         ...action.payload,
                          quantity: 1
-                    }
-                )
+                    })
+                    console.log("ADD_ITEM")
             }
             return {
                 ...state,
@@ -34,25 +33,27 @@ const cartReducer = (state, action) => {
             }
 
         case "REMOVE_ITEM":
+            console.log("REMOVE_ITEM")
             const newSelectedItems = state.selectedItems.filter(item => item.id !== action.payload.id)
             return {
                 ...state,
                 selectedItems: [...newSelectedItems],
-                ...sumItem(state.selectedItems)
+                ...sumItem(newSelectedItems)
             }    
 
         case "INCREASE":
-         const indexI = state.selectedItems.findIndex(item => item.id === action.payload.id)
-         state.selectedItems[indexI].quantity++;
-         return {...state, ...sumItem(state.selectedItems)}
+            const indexI = state.selectedItems.findIndex(item => item.id === action.payload.id)
+            state.selectedItems[indexI].quantity++;
+            return {...state, ...sumItem(state.selectedItems)}
 
         case "DECREASE":
-         const indexD = state.selectedItems.findIndex(item => item.id === action.payload.id)
-         state.selectedItems[indexD].quantity--;
-         return {...state, ...sumItem(state.selectedItems)}
+            const indexD = state.selectedItems.findIndex(item => item.id === action.payload.id)
+            state.selectedItems[indexD].quantity--;
+            return {...state, ...sumItem(state.selectedItems)}
          
          case "CHECKOUT":
             if(state.totalPrice > 0){
+                console.log("CHECKED_OUT")
            return {
             selectedItems : [],
             isChekedOut : true,

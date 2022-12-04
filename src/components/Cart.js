@@ -20,7 +20,9 @@ const Cart = () => {
             :
             <div className='my-2 w-3/4 rounded-xl flex justify-around flex-col xs:flex-row  items-center h-32 bg-white mx-auto shadow-md'>
               <h4>There is no item in your cart</h4>
+              { !state.isChekedOut &&
               <button className='bg-blue-700 text-white rounded-md px-2'><Link to='/store'>SHOP</Link></button>
+              } 
             </div>
           }
         </div>
@@ -41,7 +43,7 @@ const Cart = () => {
                 <div>
                   <div>
                     <h4 className=' text-lg font-bold text-blue-700 ml-2 inline-block'>Total Count: </h4>
-                    <span className='text-lg ml-2'>${state.itemsCount}</span>
+                    <span className='text-lg ml-2'>{state.itemsCount}</span>
                   </div>
                   <div>
                     <h4 className=' text-lg font-bold text-blue-700 ml-2 inline-block'>Total Price: </h4>
