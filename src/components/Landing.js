@@ -9,7 +9,7 @@ const Landing = () => {
   
 
   return (
-    <div className="w-screen h-[94vh] mx-auto bg-gradient-to-r from-cyan-500 to-blue-500">
+    <div className="w-full h-[94vh] bg-gradient-to-r from-cyan-500 to-blue-500">
         <div>
             <h2 className='relative top-96 ml-10 text-4xl md:text-[5rem] font-[dancing-bold]'>
               <Typewriter 

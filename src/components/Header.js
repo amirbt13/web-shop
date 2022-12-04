@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <div 
-    className={`${location.pathname === "/" && "bg-gradient-to-r from-cyan-500 to-blue-500" } w-screen flex justify-between  ${!isBurgerShow && "px-4 items-center"} sticky top-0 ${location.pathname === "/cart" ? "bg-slate-100 backdrop-blur" : "bg-[#f8fafc7c] backdrop-blur"} `}>
+    className={`${location.pathname === "/" && "bg-gradient-to-r from-cyan-500 to-blue-500" } w-full flex justify-between sticky top-0 ${location.pathname === "/cart" ? "bg-slate-100 backdrop-blur" : "bg-[#f8fafc7c] backdrop-blur"} items-center`} style={{padding: "0 16px"}}>
       <div>
         <img className='w-12 rounded-full ' src={logo} alt="logo"/>
       </div>
@@ -44,7 +44,7 @@ const Header = () => {
         <img className='w-8' src={burgerMenu} alt='menu'/>
       </div>
 
-      <div className={` transition ease-in-out ${isBurgerShow ? "translate-y-0" : "translate-y-[-100px]"} bg-white absolute w-[100vw] flex justify-between border-b-2 `}>
+      <div className={` transition ease-in-out ${isBurgerShow ? "translate-y-[25px]" : "-translate-y-[100px]"} bg-white absolute right-0 w-screen flex justify-between border-b-2 px-4`}>
 
         <div>
           <img onClick={() => setIsBurgerShow(false)}
