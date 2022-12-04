@@ -6,7 +6,7 @@ const CartItem = ({ product }) => {
   const totalPrice = product.price * product.quantity
   return (
 
-        <div className='my-2 sm:w-3/4 rounded-md flex  items-center h-40 bg-white mx-auto shadow-md'>
+        <div className='my-2 sm:w-3/4 rounded-md flex  items-center h-40 bg-white mx-auto shadow-md border-t-2'>
           <div className='my-2'>
             <img className=' w-16 xs:w-20 ml-2 mr-4' src={product.image} alt='product' />
           </div>

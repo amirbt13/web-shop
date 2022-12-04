@@ -58,7 +58,10 @@ const Header = () => {
             <li><Link to='/'>HOME</Link></li>
             <li><Link to='/store'>SHOP</Link></li>
             <li><Link to='/contact'>CONTACT</Link></li>
-            <li><Link to='/cart'>CART</Link></li>
+            <li><Link to='/cart'><span 
+            className={`px-[4px] relative bottom-[2px] right-1 bg-blue-700 text-white rounded-full text-xs`}
+            >{state.itemsCount}
+            </span>CART</Link></li>
           </ul>
         </div>
       </div>

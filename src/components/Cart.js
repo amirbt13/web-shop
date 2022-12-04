@@ -18,7 +18,7 @@ const Cart = () => {
             ? 
             state.selectedItems.map(item => <CartItem key={item.id} product={item} dispatch={dispatch}/>)
             :
-            <div className='my-2 w-3/4 rounded-xl flex justify-around flex-col xs:flex-row  items-center h-32 bg-white mx-auto shadow-md'>
+            <div className='my-2 w-3/4 rounded-xl flex justify-around flex-col xs:flex-row  items-center h-32 bg-white mx-auto shadow-md border-t-2'>
               <h4>There is no item in your cart</h4>
               { !state.isChekedOut &&
               <button className='bg-blue-700 text-white rounded-md px-2'><Link to='/store'>SHOP</Link></button>
@@ -31,7 +31,7 @@ const Cart = () => {
             {
               state.isChekedOut 
               &&
-              <div className='bg-white w-5/6 mx-auto my-2 p-3 h-64 rounded-md shadow-md flex flex-col justify-evenly'>
+              <div className='bg-white w-5/6 mx-auto my-2 p-3 h-64 rounded-md shadow-md flex flex-col justify-evenly border-t-2'>
                 <h4 className='text-lg text-center'>Thank You For Your Purchse</h4>
                 <button className='px-2 bg-blue-700 text-white font-medium rounded-lg'><Link to='../store'>BUY MORE</Link></button>
               </div>
@@ -39,7 +39,7 @@ const Cart = () => {
             {
               !state.isChekedOut
               &&
-              <div className='flex flex-col justify-evenly bg-white w-5/6 mx-auto my-2 p-3 h-64 rounded-md shadow-md'>
+              <div className='flex flex-col justify-evenly bg-white w-5/6 mx-auto my-2 p-3 h-64 rounded-md shadow-md border-t-2'>
                 <div>
                   <div>
                     <h4 className=' text-lg font-bold text-blue-700 ml-2 inline-block'>Total Count: </h4>
