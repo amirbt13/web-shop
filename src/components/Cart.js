@@ -12,9 +12,17 @@ const Cart = () => {
 
 
   return (
-    <div className='flex flex-col-reverse md:flex-row min-h-[100vh] bg-slate-100'>
+    <div className='flex flex-col-reverse md:flex-row justify-end min-h-[100vh] pt-2 bg-slate-100'>
         <div className='basis-3/4 '>
-            {state.selectedItems.map(item => <CartItem key={item.id} product={item} dispatch={dispatch}/>)}
+            {state.selectedItems.length > 0 
+            ? 
+            state.selectedItems.map(item => <CartItem key={item.id} product={item} dispatch={dispatch}/>)
+            :
+            <div className='my-2 w-3/4 rounded-xl flex justify-around flex-col xs:flex-row  items-center h-32 bg-white mx-auto shadow-md'>
+              <h4>There is no item in your cart</h4>
+              <button className='bg-blue-700 text-white rounded-md px-2'><Link to='/store'>SHOP</Link></button>
+            </div>
+          }
         </div>
         <div className='basis-1/4'>
           
