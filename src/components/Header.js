@@ -21,7 +21,7 @@ const Header = () => {
       <div>
         <img className='w-12 rounded-full ' src={logo} alt="logo"/>
       </div>
-      <div className='hidden xs:block text-xl'>
+      <div className='hidden sm:block text-xl'>
         <ul className='flex flex-row space-x-6'>
           <li className='hover:tracking-widest transition-all font-light'>
             <Link to='/cart'>
@@ -40,7 +40,7 @@ const Header = () => {
 
         </ul>
       </div>
-      <div className='xs:hidden' onClick={() => setIsBurgerShow(true)}>
+      <div className='sm:hidden' onClick={() => setIsBurgerShow(true)}>
         <img className='w-8' src={burgerMenu} alt='menu'/>
       </div>
 

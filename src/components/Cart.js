@@ -12,7 +12,7 @@ const Cart = () => {
 
 
   return (
-    <div className='flex min-h-[100vh] bg-slate-100'>
+    <div className='flex flex-col-reverse md:flex-row min-h-[100vh] bg-slate-100'>
         <div className='basis-3/4 '>
             {state.selectedItems.map(item => <CartItem key={item.id} product={item} dispatch={dispatch}/>)}
         </div>
@@ -40,9 +40,9 @@ const Cart = () => {
                     <span className='text-lg ml-2'>${state.totalPrice}</span>
                   </div>
                 </div>  
-                  <div className='flex justify-between'>
-                    <button className='ml-2 bg-slate-100 py-[1px] px-1 rounded-md' onClick={() => dispatch({type: "CLEAR"})}>CLEAR CART</button>
-                    <button className='bg-blue-700 text-white px-2 rounded-md shadow-sm' onClick={() => dispatch({type: "CHECKOUT"})}>CHECK OUT</button>
+                  <div className='ml-2 flex justify-between xl:flex-row flex-col-reverse'>
+                    <button className=' bg-slate-100 py-[1px] px-1 rounded-md' onClick={() => dispatch({type: "CLEAR"})}>CLEAR CART</button>
+                    <button className='bg-blue-700 text-white px-2 rounded-md shadow-sm mb-2 xl:mb-0' onClick={() => dispatch({type: "CHECKOUT"})}>CHECK OUT</button>
                   </div>
               </div>
             }
