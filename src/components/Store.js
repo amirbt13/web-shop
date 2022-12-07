@@ -7,18 +7,19 @@ import ProductDetails from './ProductDetails'
 
 
 
+
 const Store = () => {
 
     
   return (
-    <>
+    <div>
 
     <Routes>
     <Route index element={<Products />}/>
     <Route path="/products/:id" element={<ProductDetails />} />
     </Routes>
 
-    </>    
+    </div>    
   )
 }
 

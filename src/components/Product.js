@@ -10,7 +10,7 @@ const Product = ({ product }) => {
 
 
   return (
-    <div className={`container flex-col  items-center w-[10rem] xs:w-[13rem] mx-auto border-[1px] border-solid border-silver rounded-md shadow-lg justify-between ${product.isShow ? "flex" : "hidden"}`} 
+    <div className={`container flex-col  items-center w-[10rem] xs:w-[12rem] mx-auto border-[1px] border-solid border-silver rounded-md shadow-lg justify-between ${product.isShow ? "flex" : "hidden"}`} 
     onMouseDown={(e) => e.target.classList.add("shadow-inner")} 
     onMouseUp={(e) => e.target.classList.remove("shadow-inner")}
     >

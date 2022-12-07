@@ -15,10 +15,12 @@ const ProductsContextProvider = (props) => {
             setProducts(await getProducts())
         }
         fetchAPI()
-    }, [])
+      }, [])
+        
+
 
   return (
-    <ProductsContext.Provider value={products}>
+    <ProductsContext.Provider value={{products, setProducts}}>
         {props.children}
     </ProductsContext.Provider>
   )

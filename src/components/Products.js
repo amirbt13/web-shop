@@ -16,8 +16,8 @@ const Products = () => {
   
 
   return (
-    <div className='flex flex-col-reverse'>
-      <div className='basis-3/4 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 lg:grid-cols-4 xl:grid-cols-5 my-6 mx-2'>
+    <div className='flex flex-col-reverse sm:flex-row'>
+      <div className='basis-3/4 grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-5 lg:grid-cols-4 xl:grid-cols-5 my-6 mx-2'>
           {
           products.map(product => <Product key={product.id} product={product}/>)
       }

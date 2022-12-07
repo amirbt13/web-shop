@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <div 
-    className={`${location.pathname === "/" && "bg-gradient-to-r from-cyan-500 to-blue-500" } w-full flex justify-between sticky top-0 ${location.pathname === "/cart" ? "bg-slate-100 backdrop-blur" : "bg-[#f8fafc7c] backdrop-blur"} items-center`} style={{padding: "0 16px"}}>
+    className={`${location.pathname === "/" && "bg-gradient-to-r from-cyan-500 to-indigo-700" } w-full flex justify-between sticky top-0 ${location.pathname === "/cart" ? "bg-slate-100 backdrop-blur" : "bg-[#f8fafc7c] backdrop-blur"} items-center`} style={{padding: "0 16px"}}>
       <div>
         <img className='w-12 rounded-full ' src={logo} alt="logo"/>
       </div>
