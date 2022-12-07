@@ -46,7 +46,7 @@ const Filters = ({ setProducts }) => {
 
 
   return (
-    <div className='basis-1/4 bg-blue-600 text-white transition-all ease-in duration-200 mt-1 rounded-sm sm:rounded-md sm:ml-2 sm:mt-5'>
+    <div className='basis-1/4 bg-blue-600 text-white transition-all ease-in duration-200 mt-1 rounded-sm sm:rounded-md sm:ml-3 sm:mt-5'>
       
       <div className='text-center py-1 font-semibold flex justify-center' 
       onClick={() => setFilterShow(prevFilterShow => {
@@ -57,7 +57,7 @@ const Filters = ({ setProducts }) => {
         <img className='ml-1 mt-1 w-4' src={arrowWhite} alt='arrow-down' />
       </div>
       
-      <form className={`${filterShow.mainSection ? "block" : "hidden"} bg-white text-gray-800 mb-2 mx-1 rounded-lg py-1 px-2`}>
+      <form className={`${filterShow.mainSection ? "block" : "hidden"} sm:block bg-white text-gray-800 mb-2 mx-1 rounded-lg py-1 px-2`}>
         <div className='flex justify-between'
         onClick={() => setFilterShow(prevFilterShow => {
           return {
