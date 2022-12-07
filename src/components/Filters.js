@@ -46,9 +46,9 @@ const Filters = ({ setProducts }) => {
 
 
   return (
-    <div className='basis-1/4 bg-blue-600 text-white transition-all ease-in duration-200 mt-1 rounded-sm sm:rounded-md sm:ml-3 sm:mt-5'>
+    <div className='basis-1/4 md:basis-1/5 bg-gradient-to-r from-cyan-500 to-indigo-700 text-white transition-all ease-in duration-200 mt-1 rounded-sm sm:rounded-md sm:mx-2 sm:mt-[24px] sm:h-72'>
       
-      <div className='text-center py-1 font-semibold flex justify-center' 
+      <div className='text-center py-2 font-semibold flex justify-center' 
       onClick={() => setFilterShow(prevFilterShow => {
         return {
           ...prevFilterShow,

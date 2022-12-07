@@ -33,7 +33,7 @@ const Cart = () => {
               &&
               <div className='bg-white w-5/6 mx-auto my-2 p-3 h-64 rounded-md shadow-md flex flex-col justify-evenly border-t-2'>
                 <h4 className='text-lg text-center'>Thank You For Your Purchse</h4>
-                <button className='px-2 bg-blue-700 text-white font-medium rounded-lg'><Link to='../store'>BUY MORE</Link></button>
+                <button className='px-2 bg-gradient-to-r from-cyan-500 to-indigo-700 text-white font-medium rounded-lg'><Link to='../store'>BUY MORE</Link></button>
               </div>
             }
             {
@@ -52,7 +52,7 @@ const Cart = () => {
                 </div>  
                   <div className='ml-2 flex justify-between xl:flex-row flex-col-reverse'>
                     <button className=' bg-slate-100 py-[1px] px-1 rounded-md' onClick={() => dispatch({type: "CLEAR"})}>CLEAR CART</button>
-                    <button className='bg-blue-700 text-white px-2 rounded-md shadow-sm mb-2 xl:mb-0' onClick={() => dispatch({type: "CHECKOUT"})}>CHECK OUT</button>
+                    <button className='bg-gradient-to-r from-cyan-500 to-indigo-700 text-white px-2 rounded-md shadow-sm mb-2 xl:mb-0' onClick={() => dispatch({type: "CHECKOUT"})}>CHECK OUT</button>
                   </div>
               </div>
             }

@@ -27,7 +27,7 @@ const Header = () => {
             <Link to='/cart'>
 
             <span 
-            className={`px-[4px] relative bottom-3 ${location.pathname === "/" ? "bg-white text-black border-black border-[1px]" : "bg-blue-700 text-white"} rounded-full text-sm`}
+            className={`px-[4px] relative bottom-3 ${location.pathname === "/" ? "bg-white text-black border-black border-[1px]" : "bg-gradient-to-r from-cyan-500 to-indigo-700 text-white"} rounded-full text-sm`}
             >{state.itemsCount}
             </span>
             CART</Link>
@@ -59,7 +59,7 @@ const Header = () => {
             <li><Link to='/store'>SHOP</Link></li>
             <li><Link to='/contact'>CONTACT</Link></li>
             <li><Link to='/cart'><span 
-            className={`px-[4px] relative bottom-[2px] right-1 bg-blue-700 text-white rounded-full text-xs`}
+            className={`px-[4px] relative bottom-[2px] right-1 bg-gradient-to-r from-cyan-500 to-indigo-700 text-white rounded-full text-xs`}
             >{state.itemsCount}
             </span>CART</Link></li>
           </ul>
