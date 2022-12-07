@@ -1,18 +1,16 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 
 // Context
-import { CartContext } from '../contexts/CartContextProvider'
 import CartButtons from '../smallComponents/CartButtons'
 
 
 const Product = ({ product }) => {
 
-  const {state, dispatch} = useContext(CartContext)
 
   return (
-    <div className='container flex flex-col  items-center w-[10rem] xs:w-[13rem] mx-auto border-[1px] border-solid border-silver rounded-md shadow-lg justify-between' 
+    <div className={`container flex-col  items-center w-[10rem] xs:w-[13rem] mx-auto border-[1px] border-solid border-silver rounded-md shadow-lg justify-between ${product.isShow ? "flex" : "hidden"}`} 
     onMouseDown={(e) => e.target.classList.add("shadow-inner")} 
     onMouseUp={(e) => e.target.classList.remove("shadow-inner")}
     >
