@@ -6,13 +6,13 @@ import CartButtons from '../smallComponents/CartButtons'
 // Context
 import { ProductsContext } from '../contexts/ProductsContextProvider'
 
-const ProductDetails = (props) => {
+const ProductDetails = () => {
   const params = useParams()
-  const id = params.id
+  const id = params.id - 1
 
-    const productData = useContext(ProductsContext)
-    const product = productData[id - 1]
-   
+    const {products} = useContext(ProductsContext)
+    const product = products[id]
+  
 
   return (
     <div className='flex justify-around
