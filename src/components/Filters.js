@@ -1,16 +1,23 @@
 import React, { useState } from 'react'
 
+// icons
 import arrow from '../icons/down-arrow.svg'
 import arrowWhite from '../icons/down-arrow-white.svg'
 
+// helper functions
+import { min, max } from '../helperF/functions'
 
-const Filters = ({ setProducts }) => {
+
+const Filters = ({ products, setProducts }) => {
   
   const [filterShow, setFilterShow] = useState({
     mainSection: false,
     category: false,
-    search: false
+    search: false,
+    price: false
   })
+
+  const [crrPrice, setCrrPrice] = useState(0)
 
 
   const inputHandler = (event) => {
@@ -69,7 +76,26 @@ const Filters = ({ setProducts }) => {
     }
   }
 
+  const priceHandler = (event) => {
+      setCrrPrice(event.target.value)
 
+      setProducts(prevProducts => {
+        return prevProducts.map(product => {
+          if(product.price > event.target.value){
+            return {
+              ...product,
+              isShow: false
+            }
+          } else {
+            return {
+              ...product,
+              isShow: true
+            }
+          }
+        })
+      })
+      
+  }
 
 
   return (
@@ -79,20 +105,48 @@ const Filters = ({ setProducts }) => {
       onClick={() => setFilterShow(prevFilterShow => {
         return {
           ...prevFilterShow,
-           mainSection: !prevFilterShow.mainSection}
+           mainSection: !prevFilterShow.mainSection,
+           }
       })}>Filters
         <img className='ml-1 mt-1 w-4' src={arrowWhite} alt='arrow-down' />
       </div>
-      <section className={`${filterShow.mainSection ? "flex" : "hidden"} sm:flex flex-col-reverse`}>
-          <form className={` bg-white text-gray-800 mb-2 mx-1 rounded-lg py-1 px-2`}>
+      <form className={`${filterShow.mainSection ? "flex" : "hidden"} sm:flex flex-col-reverse`}>
+
+
+          <section className='bg-white text-gray-800 mb-2 mx-1 rounded-lg py-1 px-2'>
             <div className='flex justify-between'
             onClick={() => setFilterShow(prevFilterShow => {
               return {
                 ...prevFilterShow,
-                category: !prevFilterShow.category
+                price: !prevFilterShow.price,
+                category: false,
+                search: false
               }
             })}
             >
+              <p>Price<span className={`${filterShow.price? "inline" : "hidden"}`}> : ${crrPrice}</span></p>
+              <img className='w-4' src={arrow} alt='arrow-down' />
+            </div>
+            <div className={`my-2 ${filterShow.price ? "flex" : "hidden"}`}>
+              <label>${min(products)}</label>
+              <input className='w-full mx-1' type="range" min={min(products)} max={max(products)}
+              onChange={priceHandler}
+              />
+              <label>${max(products)}</label>
+            </div>
+          </section>
+          
+
+          <section className={` bg-white text-gray-800 mb-2 mx-1 rounded-lg py-1 px-2`}>
+            <div className='flex justify-between'
+            onClick={() => setFilterShow(prevFilterShow => {
+              return {
+                ...prevFilterShow,
+                category: !prevFilterShow.category,
+                search: false,
+                price: false
+              }
+            })}>
                 <p>Categories </p>
                 <img className=' w-4' src={arrow} alt='arrow-down' />
             </div>
@@ -120,14 +174,18 @@ const Filters = ({ setProducts }) => {
                     </div>
                 </div>
             </div>
-          </form>
-          <form>
+          </section>
+
+
+          <section>
             <div className='bg-white mb-2 mx-1 py-1 px-2 rounded-lg text-gray-800'>
               <div className='flex justify-between'
               onClick={() => setFilterShow(prevFilterShow => {
                 return {
                   ...prevFilterShow,
-                  search: !prevFilterShow.search
+                  search: !prevFilterShow.search,
+                  category: false,
+                  price: false
                 }
               })}
               >
@@ -139,8 +197,9 @@ const Filters = ({ setProducts }) => {
                 onChange={searchHandler}/>
               </div>
             </div>
-          </form>
-      </section>
+          </section>
+          
+      </form>
     </div>
   )
 }

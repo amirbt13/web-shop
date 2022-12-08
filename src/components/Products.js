@@ -22,7 +22,7 @@ const Products = () => {
           products.map(product => <Product key={product.id} product={product}/>)
       }
       </div>
-      <Filters setProducts={setProducts}/>
+      <Filters products={products} setProducts={setProducts}/>
     </div>
   )
 }
