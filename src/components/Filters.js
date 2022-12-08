@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 // icons
 import arrow from '../icons/down-arrow.svg'
@@ -19,6 +19,17 @@ const Filters = ({ products, setProducts }) => {
 
   const [crrPrice, setCrrPrice] = useState(0)
 
+
+  useEffect(() => {
+   setProducts(prevProducts => {
+    return prevProducts.map(product => {
+      return {
+        ...product,
+        isShow: true
+      }
+    })
+   })
+  }, [])
 
   const inputHandler = (event) => {
     
