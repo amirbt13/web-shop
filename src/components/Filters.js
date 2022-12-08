@@ -200,7 +200,7 @@ const Filters = ({ products, setProducts }) => {
                 }
               })}
               >
-                <p>Serach</p>
+                <p>Search</p>
                 <img className='w-4' src={arrow} alt='arrow-down' />
               </div>
               <div className={`${filterShow.search ? "block" : "hidden"} mt-1`}>
