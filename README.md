@@ -1,6 +1,6 @@
-# IMPORTANT IMPORTANT
-project can not go any further because of internet issues in iran , the fakestoreapi server is down , 
-the project will start again as soon as possible .
+#Project was on pause for a mounth due to internet issues in Iran , i'm working on it again
+
+
 
 # Getting Started with Create React App
 
