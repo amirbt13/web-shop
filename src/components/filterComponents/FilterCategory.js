@@ -1,26 +1,26 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import arrow from '../../icons/down-arrow.svg'
 
 
-const FilterCategory = ({filterShow, filterValues, setFilterShow, setFilterValues, setProducts}) => {
+const FilterCategory = ({ state, dispatch, products, setProducts}) => {
 
-    const inputHandler = (event) => {
+    const [categories, setCategories] = useState([])
 
-        const {name, value} = event.target
-    
-           setFilterValues(prevValues => {
-            return {
-              ...prevValues,
-              [name]: value
-            }
-          })
-      }
+    useEffect(() => {
+        const getCategories = () => {
+            const categoryOfEvery = products.map(product => product.category)
+            const categories = [...new Set(categoryOfEvery), "all"]
+            return categories
+        }
+        setCategories(getCategories())
+
+    }, [products])
 
     useEffect(() => {
         setProducts(prevProducts => {
        
-              if(filterValues.category === 'all'){
+              if(state.category.value === 'all'){
                
                 return prevProducts.map(product => {
                   return {
@@ -33,7 +33,7 @@ const FilterCategory = ({filterShow, filterValues, setFilterShow, setFilterValue
             
                 return prevProducts.map(product => {
                
-                if(product.category !== filterValues.category){
+                if(product.category !== state.category.value){
                   return {
                     ...product,
                     isShow: false
@@ -44,44 +44,28 @@ const FilterCategory = ({filterShow, filterValues, setFilterShow, setFilterValue
               })
             }
             })
-         }, [filterValues.category])
+         }, [state.category.value])
 
   return (
         <section className={` bg-white text-gray-800 mb-2 mx-1 rounded-lg py-1 px-2`}>
             <div className='flex justify-between'
-            onClick={() => setFilterShow(prevFilterShow => {
-              return {
-                ...prevFilterShow,
-                category: !prevFilterShow.category,
-                search: false,
-                price: false
-              }
-            })}>
+            onClick={() => dispatch({type: "CHANGE_SHOW", payload: "category"})}>
                 <p>Categories </p>
                 <img className=' w-4' src={arrow} alt='arrow-down' />
             </div>
-            <div className={`${filterShow.category ? "flex" : "hidden"} flex-col`}>
+            <div className={`${state.category.isShow? "flex" : "hidden"} flex-col`}>
                 <div className='text-right'>
-                    <div> 
-                      <label className='mr-2'>All</label>
-                      <input onClick={inputHandler} type="radio" name='category' defaultChecked='true' value="all"/>
-                    </div>
-                    <div>
-                      <label className='mr-2'>men's clothing</label>
-                      <input onClick={inputHandler} type="radio" name='category' value="men's clothing"/>
-                    </div>
-                    <div>
-                      <label className='mr-2'>jewelery</label>
-                      <input onClick={inputHandler} type="radio" name='category' value="jewelery"/>
-                    </div>
-                    <div>
-                      <label className='mr-2'>electronics</label>
-                      <input onClick={inputHandler} type="radio" name='category' value="electronics"/>
-                    </div>
-                    <div>
-                      <label className='mr-2'>women's clothing</label>
-                      <input onClick={inputHandler} type="radio" name='category' value="women's clothing"/>
-                    </div>
+                    {
+                        categories.map(category => <div key={category}> 
+                                <label className='mr-2'>{category}</label>
+                                <input 
+                                onClick={(event) => dispatch({type: "CHANGE_VALUE", payload: event.target})} type="radio" name="category" value={category} 
+                                defaultChecked={category === "all" ? true : false}/>
+                            </div>
+                        )
+                    }
+                    
+                    
                 </div>
             </div>
         </section>

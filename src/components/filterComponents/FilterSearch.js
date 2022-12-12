@@ -3,26 +3,26 @@ import React, {useEffect} from 'react'
 import arrow from '../../icons/down-arrow.svg'
 
 
-const FilterSearch = ({filterShow, filterValues, setFilterShow, setFilterValues, setProducts}) => {
+const FilterSearch = ({ state, dispatch, setProducts }) => {
 
-    const inputHandler = (event) => {
+    // const inputHandler = (event) => {
 
-        const {name, value} = event.target
+    //     const {name, value} = event.target
     
-           setFilterValues(prevValues => {
-            return {
-              ...prevValues,
-              [name]: value
-            }
-          })
-      }
+    //        setFilterValues(prevValues => {
+    //         return {
+    //           ...prevValues,
+    //           [name]: value
+    //         }
+    //       })
+    //   }
 
     useEffect(() => {
-        if(filterValues.search !== ""){
+        if(state.search.value !== ""){
     
           setProducts(prevProducts => prevProducts.map(product => {
     
-            if(product.title.toLowerCase().includes(filterValues.search)){
+            if(product.title.toLowerCase().includes(state.search.value)){
               return {
                 ...product,
                 isShow: true
@@ -39,27 +39,20 @@ const FilterSearch = ({filterShow, filterValues, setFilterShow, setFilterValues,
             return {...product, isShow: true}
           }))
         }
-      }, [filterValues.search])
+      }, [state.search.value])
 
   return (
     
         <div className='bg-white mb-2 mx-1 py-1 px-2 rounded-lg text-gray-800'>
               <div className='flex justify-between'
-              onClick={() => setFilterShow(prevFilterShow => {
-                return {
-                  ...prevFilterShow,
-                  search: !prevFilterShow.search,
-                  category: false,
-                  price: false
-                }
-              })}
+              onClick={() => dispatch({type: "CHANGE_SHOW", payload: "search"})}
               >
                 <p>Search</p>
                 <img className='w-4' src={arrow} alt='arrow-down' />
               </div>
-              <div className={`${filterShow.search ? "block" : "hidden"} mt-1`}>
-                <input name='search' value={filterValues.search} className='w-full px-2 py-1 my-1 bg-slate-300 rounded-lg' type="text"
-                onChange={inputHandler}/>
+              <div className={`${state.search.isShow ? "block" : "hidden"} mt-1`}>
+                <input name='search' value={state.search.value} className='w-full px-2 py-1 my-1 bg-slate-300 rounded-lg' type="text"
+                onChange={(event) => dispatch({type:"CHANGE_VALUE", payload: event.target})}/>
               </div>
             </div>
     
