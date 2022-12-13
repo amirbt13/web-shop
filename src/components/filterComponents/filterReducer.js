@@ -30,13 +30,19 @@ export const filterReducer = (state, action) => {
                 
             }
         case "CHANGE_SHOW" :
-            
-            return {
-                ...state,
-                [action.payload] : {
-                    ...state[action.payload],
-                    isShow: !state[action.payload].isShow
+            Object.keys(state).forEach(key =>{
+
+                if(key === action.payload){
+                    state[key].isShow = !state[key].isShow
+                    
+                } else if(key !== 'main' && key !== action.payload){
+                    state[key].isShow = false
                 }
-            }    
+            })
+            //console.log(state)
+            return {
+                ...state
+            } 
+          
         }
 }
