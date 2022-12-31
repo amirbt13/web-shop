@@ -4,19 +4,7 @@ import arrow from '../../icons/down-arrow.svg'
 
 
 const FilterSearch = ({ state, dispatch, setProducts }) => {
-
-    // const inputHandler = (event) => {
-
-    //     const {name, value} = event.target
-    
-    //        setFilterValues(prevValues => {
-    //         return {
-    //           ...prevValues,
-    //           [name]: value
-    //         }
-    //       })
-    //   }
-
+  
     useEffect(() => {
         if(state.search.value !== ""){
     
